@@ -70,7 +70,7 @@ def main():
             run_docker_registry(dir_path / pathlib.Path("registry")):
 
         http_artifacts = dir_path / pathlib.Path("http")
-        docker_artifacts = dir_path / pathlib.Path("registry")
+        docker_artifacts = dir_path / pathlib.Path("docker_registry")
         repo_artifacts = dir_path / pathlib.Path("universe/repo/packages")
 
         os.makedirs(str(http_artifacts))
