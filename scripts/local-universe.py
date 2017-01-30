@@ -205,6 +205,11 @@ def run_docker_registry(volume_path):
 
 
 def download_docker_image(name):
+    print('Rename the docker image: {}'.format(name))
+    command = ['docker', 'tag', name, 'ndaas/{}'.format(name) ]
+
+    subprocess.check_call(command)
+
     print('Pull docker images: {}'.format(name))
     command = ['docker', 'pull', name]
 
