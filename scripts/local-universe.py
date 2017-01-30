@@ -205,11 +205,6 @@ def run_docker_registry(volume_path):
 
 
 def download_docker_image(name):
-    print('Rename the docker image: {}'.format(name))
-    command = ['docker', 'tag', name, 'ndaas/{}'.format(name) ]
-
-    subprocess.check_call(command)
-
     print('Pull docker images: {}'.format(name))
     command = ['docker', 'pull', name]
 
@@ -226,11 +221,11 @@ def format_image_name(host, name):
 def upload_docker_image(name):
     print('Pushing docker image: {}'.format(name))
     command = ['docker', 'tag', name,
-        format_image_name('localhost:5000', name)]
+        format_image_name('ndaas', name)]
 
     subprocess.check_call(command)
 
-    command = ['docker', 'push', format_image_name('localhost:5000', name)]
+    command = ['docker', 'push', format_image_name('ndaas', name)]
 
     subprocess.check_call(command)
 
