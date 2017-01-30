@@ -221,11 +221,11 @@ def format_image_name(host, name):
 def upload_docker_image(name):
     print('Pushing docker image: {}'.format(name))
     command = ['docker', 'tag', name,
-        format_image_name('ndaas', name)]
+        format_image_name('localhost:5000', name)]
 
     subprocess.check_call(command)
 
-    command = ['docker', 'push', format_image_name('ndaas', name)]
+    command = ['docker', 'push', format_image_name('localhost:5000', name)]
 
     subprocess.check_call(command)
 
