@@ -70,12 +70,12 @@ def main():
             run_docker_registry(dir_path / pathlib.Path("registry")):
 
         http_artifacts = dir_path / pathlib.Path("http")
-        docker_artifacts = dir_path / pathlib.Path("docker_registry")
+        docker_artifacts = dir_path / pathlib.Path("registry")
         repo_artifacts = dir_path / pathlib.Path("universe/repo/packages")
 
-        os.makedirs(str(http_artifacts))
-        os.makedirs(str(repo_artifacts))
-        os.makedirs(str(docker_artifacts))
+        os.makedirs(str(http_artifacts),exist_ok=True)
+        os.makedirs(str(repo_artifacts),exist_ok=True)
+        os.makedirs(str(docker_artifacts),exist_ok=True)
 
         failed_packages = []
         def handle_package(opts):
